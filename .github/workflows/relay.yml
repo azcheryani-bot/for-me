@@ -2,8 +2,8 @@ name: Update Relay Configs
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # هر ۶ ساعت یکبار
-  workflow_dispatch: # امکان اجرای دستی
+    - cron: '0 */6 * * *' # اجرای خودکار هر ۶ ساعت یک‌بار
+  workflow_dispatch:      # امکان اجرای دستی از تب Actions
 
 permissions:
   contents: write
@@ -22,8 +22,7 @@ jobs:
 
       - name: Install Dependencies & Sing-Box
         run: |
-          pip install telethon requests
-          # دانلود آخرین نسخه سینگ‌باکس برای لینوکس
+          pip install pyrogram tgcrypto requests
           curl -Lo sing-box.tar.gz https://github.com/SagerNet/sing-box/releases/download/v1.9.0/sing-box-1.9.0-linux-amd64.tar.gz
           tar -xzf sing-box.tar.gz
           sudo mv sing-box-*/sing-box /usr/local/bin/
