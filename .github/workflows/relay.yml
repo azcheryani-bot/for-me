@@ -2,8 +2,8 @@ name: Update Relay Configs
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # اجرای خودکار هر ۶ ساعت یک‌بار
-  workflow_dispatch:      # امکان اجرای دستی از تب Actions
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
