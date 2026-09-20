@@ -11,7 +11,7 @@ from pyrogram import Client
 
 OUTPUT_NAME = "all_countries_v2nodes.txt"
 WORKSPACE = Path.cwd()
-DESKTOP = WORKSPACE / "Desktop"
+DESKTOP = Path.home() / "Desktop"
 ORIGINAL_INPUT = builtins.input
 
 
