@@ -28,514 +28,7 @@
     },
     {
       "tag": "relay-node",
-      "server": "47.83.19.148",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "6JDvArazgU3qQR6Q.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "6JDvArazgU3qQR6Q.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "wwafj5lhl6bi8au9.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {}
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "wwafj5lhl6bi8au9.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "82.38.31.47",
-      "server_port": 8080,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "wwafj5lhl6bi8au9.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {}
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "wwafj5lhl6bi8au9.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "82.38.31.48",
-      "server_port": 8080,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "dee2309db4944c248b6d4672c6641e25.oylfmxz.cn",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "d90e4077-bc7e-414d-a650-70bf1baae4d6",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "dee2309db4944c248b6d4672c6641e25.oylfmxz.cn"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "dee2309db4944c248b6d4672c6641e25.oylfmxz.cn",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "118.193.57.167",
-      "server_port": 49667,
-      "type": "vmess",
-      "uuid": "d46bf492-45f4-4c33-82d1-ea2a1cb54eb6",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/d46bf492",
-        "headers": {}
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "47.83.207.148",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "VAH4URdZL3jDX5r2.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "VAH4URdZL3jDX5r2.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "82.38.31.193",
+      "server": "82.38.31.216",
       "server_port": 8080,
       "type": "shadowsocks",
       "method": "chacha20-ietf-poly1305",
@@ -590,11 +83,22 @@
     },
     {
       "tag": "relay-node",
-      "server": "36.224.185.143",
-      "server_port": 50099,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "7e731ec3-f8e1-43f6-92cf-3978d14705c4"
+      "server": "wwafj5lhl6bi8au9.v.3dns.vip",
+      "server_port": 443,
+      "type": "vmess",
+      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "path": "/ws-vmess",
+        "headers": {}
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "wwafj5lhl6bi8au9.v.3dns.vip",
+        "insecure": false
+      }
     },
     {
       "type": "direct",
@@ -645,11 +149,11 @@
     },
     {
       "tag": "relay-node",
-      "server": "139.84.247.164",
+      "server": "132.243.175.144",
       "server_port": 8388,
       "type": "shadowsocks",
       "method": "chacha20-ietf-poly1305",
-      "password": "tfAcRikawhNoZAhu"
+      "password": "e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3"
     },
     {
       "type": "direct",
@@ -700,11 +204,411 @@
     },
     {
       "tag": "relay-node",
-      "server": "104.249.22.75",
-      "server_port": 43377,
+      "server": "82.38.31.180",
+      "server_port": 8080,
       "type": "shadowsocks",
       "method": "chacha20-ietf-poly1305",
-      "password": "2MaqmLJwWXtdJPvpzXD2MSYiZrXDwneqZbAEXqZUw7RzX7ndd3xFM9C3u9NdRXZPTNgDBenPLn6B6VrwmodCSEQc8RfuxBn8"
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "oc.imfun.fun",
+      "server_port": 18112,
+      "type": "vmess",
+      "uuid": "ad45f8f6-0f0a-4cc4-b907-c4582407dc94",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "nycqg19zkwacpm1b.v.3dns.vip",
+      "server_port": 443,
+      "type": "vmess",
+      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "path": "/ws-vmess",
+        "headers": {
+          "Host": "NYcQg19zkwaCPM1B.v.3dns.vip"
+        }
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "NYcQg19zkwaCPM1B.v.3dns.vip",
+        "insecure": false
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "82.38.31.17",
+      "server_port": 8080,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "51.222.141.125",
+      "server_port": 445,
+      "type": "shadowsocks",
+      "method": "aes-256-gcm",
+      "password": "zDNVedRFPQexG9v"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "51.222.200.165",
+      "server_port": 5000,
+      "type": "shadowsocks",
+      "method": "aes-256-gcm",
+      "password": "Y6R9pAtvxxzmGC"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "oc.imfun.fun",
+      "server_port": 18112,
+      "type": "vmess",
+      "uuid": "ad45f8f6-0f0a-4cc4-b907-c4582407dc94",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "134.65.63.122",
+      "server_port": 61312,
+      "type": "shadowsocks",
+      "method": "2022-blake3-chacha20-poly1305",
+      "password": "9UzSnfj0gy1JNUBD2L3JgpLLlQieW6AfOJ9vptz0iks="
     },
     {
       "type": "direct",
@@ -823,20 +727,186 @@
     },
     {
       "tag": "relay-node",
-      "server": "188.114.97.6",
+      "server": "168.110.60.104",
+      "server_port": 18112,
+      "type": "vmess",
+      "uuid": "ad45f8f6-0f0a-4cc4-b907-c4582407dc94",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "82.38.31.193",
+      "server_port": 8080,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "82.38.31.174",
       "server_port": 443,
-      "type": "vless",
-      "uuid": "c4edb87e-8544-4fa4-bd1c-b0cda9a34b46",
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "104.21.70.21",
+      "server_port": 443,
+      "type": "trojan",
+      "password": "018b8e7b-7813-4dcb-84a5-3c98f1521e00",
       "transport": {
         "type": "ws",
-        "path": "/ws",
+        "path": "/trojan",
         "headers": {
-          "Host": "a.cwvps.eu.org"
+          "Host": "id1.nathaya.web.id"
         }
       },
       "tls": {
         "enabled": true,
-        "server_name": "a.cwvps.eu.org",
+        "server_name": "id1.nathaya.web.id",
         "insecure": false
       }
     },
@@ -889,11 +959,14 @@
     },
     {
       "tag": "relay-node",
-      "server": "51.79.85.185",
-      "server_port": 8118,
-      "type": "shadowsocks",
-      "method": "aes-256-gcm",
-      "password": "cdBIDV42DCwnfIN"
+      "server": "66.90.105.210",
+      "server_port": 2083,
+      "type": "vless",
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
+      "transport": {
+        "type": "grpc",
+        "service_name": "vless"
+      }
     },
     {
       "type": "direct",
@@ -944,11 +1017,1049 @@
     },
     {
       "tag": "relay-node",
-      "server": "82.38.31.203",
+      "server": "R3MRCG00129437X.cybervena.com",
+      "server_port": 50099,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "b1ae0fce-9340-4f2e-882d-fdb2218e2e2b"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "70.34.212.124",
+      "server_port": 8388,
+      "type": "shadowsocks",
+      "method": "aes-256-gcm",
+      "password": "AxIYWtskJWIIaefW"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "82.38.31.208",
       "server_port": 8080,
       "type": "shadowsocks",
       "method": "chacha20-ietf-poly1305",
       "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "r3mrcg00129437x.cybervena.com",
+      "server_port": 50099,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "b1ae0fce-9340-4f2e-882d-fdb2218e2e2b"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "140.82.56.38",
+      "server_port": 8388,
+      "type": "shadowsocks",
+      "method": "aes-256-gcm",
+      "password": "iOaIXNsQXVIxwmkY"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "82.38.31.189",
+      "server_port": 8080,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "82.38.31.82",
+      "server_port": 8080,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "oc.imfun.fun",
+      "server_port": 18112,
+      "type": "vmess",
+      "uuid": "ad45f8f6-0f0a-4cc4-b907-c4582407dc94",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "ejomsxptp19apygl.v.3dns.vip",
+      "server_port": 443,
+      "type": "vmess",
+      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "path": "/ws-vmess",
+        "headers": {}
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "ejomsxptp19apygl.v.3dns.vip",
+        "insecure": false
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "82.38.31.176",
+      "server_port": 8080,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "104.16.10.233",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "b8d8a5b0-867f-4491-b4e4-30edc04bb10e",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "u.srilankangrill.online"
+        }
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "u.srilankangrill.online",
+        "insecure": false
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "82.38.31.217",
+      "server_port": 8080,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "82.38.31.205",
+      "server_port": 8080,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "r3mrcg001286ek2.cybervena.com",
+      "server_port": 50099,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "7e731ec3-f8e1-43f6-92cf-3978d14705c4"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "oc.imfun.fun",
+      "server_port": 18112,
+      "type": "vmess",
+      "uuid": "ad45f8f6-0f0a-4cc4-b907-c4582407dc94",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "93ucrn4i0pffuabk.v.3dns.vip",
+      "server_port": 443,
+      "type": "vmess",
+      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "path": "/ws-vmess",
+        "headers": {}
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "93ucrn4i0pffuabk.v.3dns.vip",
+        "insecure": false
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "82.38.31.179",
+      "server_port": 8080,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "82.38.31.46",
+      "server_port": 8080,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "nycqg19zkwacpm1b.v.3dns.vip",
+      "server_port": 443,
+      "type": "vmess",
+      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "path": "/ws-vmess",
+        "headers": {
+          "Host": "NYcQg19zkwaCPM1B.v.3dns.vip"
+        }
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "NYcQg19zkwaCPM1B.v.3dns.vip",
+        "insecure": false
+      }
     },
     {
       "type": "direct",
@@ -1055,11 +2166,24 @@
     },
     {
       "tag": "relay-node",
-      "server": "194.61.121.93",
-      "server_port": 7538,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "U9YAoqBgg5VyGBc6vQv1sN"
+      "server": "47.86.107.119",
+      "server_port": 443,
+      "type": "vmess",
+      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "path": "/ws-vmess",
+        "headers": {
+          "Host": "lcv8v9l7OyamxxfZ.v.3dns.vip"
+        }
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "lcv8v9l7OyamxxfZ.v.3dns.vip",
+        "insecure": false
+      }
     },
     {
       "type": "direct",
@@ -1110,7 +2234,128 @@
     },
     {
       "tag": "relay-node",
-      "server": "82.38.31.17",
+      "server": "198.98.53.130",
+      "server_port": 443,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "eDfN7SODQceIOmIAbtJJtK"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "wwafj5lhl6bi8au9.v.3dns.vip",
+      "server_port": 443,
+      "type": "vmess",
+      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "path": "/ws-vmess",
+        "headers": {}
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "wwafj5lhl6bi8au9.v.3dns.vip",
+        "insecure": false
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "82.38.31.2",
       "server_port": 8080,
       "type": "shadowsocks",
       "method": "chacha20-ietf-poly1305",
@@ -1165,186 +2410,7 @@
     },
     {
       "tag": "relay-node",
-      "server": "185.255.179.11",
-      "server_port": 9443,
-      "type": "vless",
-      "uuid": "d9d0f208-d582-41d5-bb7b-742671402810",
-      "transport": {
-        "type": "grpc",
-        "service_name": "de05-grpc-8e47a"
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "hub-de-05.hanvpn.cc",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "r3mrcg001286ek2.cybervena.com",
-      "server_port": 50099,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "7e731ec3-f8e1-43f6-92cf-3978d14705c4"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "156.245.232.239",
-      "server_port": 35043,
-      "type": "vmess",
-      "uuid": "b15e481d-17e4-41a8-84c2-23d4f0514d9a",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {}
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "82.38.31.189",
+      "server": "82.38.31.212",
       "server_port": 8080,
       "type": "shadowsocks",
       "method": "chacha20-ietf-poly1305",
@@ -1399,23 +2465,14 @@
     },
     {
       "tag": "relay-node",
-      "server": "nycqg19zkwacpm1b.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
+      "server": "82.24.203.20",
+      "server_port": 2087,
+      "type": "vless",
+      "uuid": "5fcdc9b7-e70f-4a5c-85c3-e018ad818326",
       "transport": {
         "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "NYcQg19zkwaCPM1B.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "NYcQg19zkwaCPM1B.v.3dns.vip",
-        "insecure": false
+        "path": "/fd5ba98a3970",
+        "headers": {}
       }
     },
     {
@@ -1467,11 +2524,121 @@
     },
     {
       "tag": "relay-node",
-      "server": "140.82.63.79",
+      "server": "38.180.214.110",
+      "server_port": 5600,
+      "type": "shadowsocks",
+      "method": "aes-256-gcm",
+      "password": "Y6R9pAtvxxzmGC"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "139.84.166.47",
       "server_port": 8388,
       "type": "shadowsocks",
+      "method": "aes-256-gcm",
+      "password": "GEdoeeqLZtkJRgSa"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "r3mrcg00129437x.cybervena.com",
+      "server_port": 50099,
+      "type": "shadowsocks",
       "method": "chacha20-ietf-poly1305",
-      "password": "ZoZtfPOyVvmKARUN"
+      "password": "b1ae0fce-9340-4f2e-882d-fdb2218e2e2b"
     },
     {
       "type": "direct",
@@ -1522,21 +2689,13 @@
     },
     {
       "tag": "relay-node",
-      "server": "172.67.151.109",
-      "server_port": 443,
+      "server": "66.90.104.42",
+      "server_port": 2083,
       "type": "vless",
-      "uuid": "50414e45-4c5f-5a45-5553-635698a6bb9c",
+      "uuid": "cd3bb7d9-7df3-4644-ac05-c260990ac277",
       "transport": {
-        "type": "ws",
-        "path": "/stream/PANEL_ZEUS/635698a6bb9c/loc-0",
-        "headers": {
-          "Host": "jdzit4e4urks.xwzohsebujps.workers.dev"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "jdzit4e4urks.xwzohsebujps.workers.dev",
-        "insecure": false
+        "type": "grpc",
+        "service_name": "vless"
       }
     },
     {
@@ -1588,78 +2747,10 @@
     },
     {
       "tag": "relay-node",
-      "server": "nycqg19zkwacpm1b.v.3dns.vip",
-      "server_port": 443,
+      "server": "oc.imfun.fun",
+      "server_port": 18112,
       "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "NYcQg19zkwaCPM1B.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "NYcQg19zkwaCPM1B.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "zfd-hkv1.kunlun01dns.com",
-      "server_port": 16114,
-      "type": "vmess",
-      "uuid": "0802ac03-7973-39ef-a019-ba02de6c01e1",
+      "uuid": "ad45f8f6-0f0a-4cc4-b907-c4582407dc94",
       "security": "auto",
       "alter_id": 0
     },
@@ -1712,12 +2803,66 @@
     },
     {
       "tag": "relay-node",
-      "server": "zfd-hkv2.kunlun01dns.com",
-      "server_port": 16112,
+      "server": "82.38.31.214",
+      "server_port": 8080,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
       "type": "vmess",
-      "uuid": "0802ac03-7973-39ef-a019-ba02de6c01e1",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
       "security": "auto",
       "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "82.38.31.191",
+      "server_port": 8080,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
     },
     {
       "type": "direct",
@@ -1823,7 +2968,7 @@
     },
     {
       "tag": "relay-node",
-      "server": "93ucrn4i0pffuabk.v.3dns.vip",
+      "server": "i2psm3knof5qjjix.v.3dns.vip",
       "server_port": 443,
       "type": "vmess",
       "uuid": "f23bb427c1f94373876c2f43e9f790f3",
@@ -1833,12 +2978,12 @@
         "type": "ws",
         "path": "/ws-vmess",
         "headers": {
-          "Host": "93ucrn4i0PffUAbk.v.3dns.vip"
+          "Host": "I2PSm3Knof5qjjix.v.3dns.vip"
         }
       },
       "tls": {
         "enabled": true,
-        "server_name": "93ucrn4i0PffUAbk.v.3dns.vip",
+        "server_name": "I2PSm3Knof5qjjix.v.3dns.vip",
         "insecure": false
       }
     },
@@ -1891,7 +3036,7 @@
     },
     {
       "tag": "relay-node",
-      "server": "82.38.31.42",
+      "server": "82.38.31.48",
       "server_port": 8080,
       "type": "shadowsocks",
       "method": "chacha20-ietf-poly1305",
@@ -2005,7 +3150,175 @@
     },
     {
       "tag": "relay-node",
-      "server": "lcv8v9l7oyamxxfz.v.3dns.vip",
+      "server": "185.126.238.87",
+      "server_port": 2083,
+      "type": "vless",
+      "uuid": "7668f678-faee-40cc-9b56-9c39dc773388",
+      "transport": {
+        "type": "grpc",
+        "service_name": "security.debian.org"
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "82.38.31.192",
+      "server_port": 8080,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "194.61.121.93",
+      "server_port": 7538,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "U9YAoqBgg5VyGBc6vQv1sN"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "nycqg19zkwacpm1b.v.3dns.vip",
       "server_port": 443,
       "type": "vmess",
       "uuid": "f23bb427c1f94373876c2f43e9f790f3",
@@ -2015,344 +3328,14 @@
         "type": "ws",
         "path": "/ws-vmess",
         "headers": {
-          "Host": "lcv8v9l7OyamxxfZ.v.3dns.vip"
+          "Host": "NYcQg19zkwaCPM1B.v.3dns.vip"
         }
       },
       "tls": {
         "enabled": true,
-        "server_name": "lcv8v9l7OyamxxfZ.v.3dns.vip",
+        "server_name": "NYcQg19zkwaCPM1B.v.3dns.vip",
         "insecure": false
       }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "82.38.31.212",
-      "server_port": 8080,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "k1dBOmOB4oqi7Ump37a1bQ"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "82.38.31.191",
-      "server_port": 8080,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "k1dBOmOB4oqi7Ump37a1bQ"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "84.247.155.196",
-      "server_port": 443,
-      "type": "shadowsocks",
-      "method": "aes-256-gcm",
-      "password": "3eOFeNssde7PYYMv"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "51.222.136.236",
-      "server_port": 8882,
-      "type": "shadowsocks",
-      "method": "aes-256-gcm",
-      "password": "kDWvXYZoTBcGkC4"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "15.235.75.71",
-      "server_port": 8388,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "FD3rCuOsxOay"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "R3MRCG00129437X.cybervena.com",
-      "server_port": 50099,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "b1ae0fce-9340-4f2e-882d-fdb2218e2e2b"
     },
     {
       "type": "direct",
@@ -2458,7 +3441,410 @@
     },
     {
       "tag": "relay-node",
-      "server": "82.38.31.180",
+      "server": "104.21.16.44",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "cb53f904-c979-454f-bf43-621990008148",
+      "transport": {
+        "type": "ws",
+        "path": "/LNbYtR09FXg1AmmjhdiHvR8v",
+        "headers": {
+          "Host": "0.aq0.ccwu.cc"
+        }
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "0.aq0.ccwu.cc",
+        "insecure": false
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "194.233.74.160",
+      "server_port": 2342,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "XV4bvaJIWoxl3IYEC1e6W7"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "zfd-hkv2.kunlun01dns.com",
+      "server_port": 16113,
+      "type": "vmess",
+      "uuid": "0802ac03-7973-39ef-a019-ba02de6c01e1",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "r3mrcg00129437x.cybervena.com",
+      "server_port": 50099,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "7e731ec3-f8e1-43f6-92cf-3978d14705c4"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "82.38.31.42",
+      "server_port": 8080,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "r3mrcg00129437x.cybervena.com",
+      "server_port": 50099,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "7e731ec3-f8e1-43f6-92cf-3978d14705c4"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "v2ray.simspeedup.com",
+      "server_port": 80,
+      "type": "vless",
+      "uuid": "3c52e091-6714-4915-949f-2149fe69951b",
+      "transport": {
+        "type": "ws",
+        "path": "/ws",
+        "headers": {
+          "Host": "v2ray.simspeedup.com"
+        }
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "82.38.31.181",
       "server_port": 8080,
       "type": "shadowsocks",
       "method": "chacha20-ietf-poly1305",
@@ -2579,196 +3965,6 @@
     },
     {
       "tag": "relay-node",
-      "server": "ex1ogt73nzpqkac2.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "EX1oGt73NzPQKAc2.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "EX1oGt73NzPQKAc2.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "137.220.221.179",
-      "server_port": 443,
-      "type": "vless",
-      "uuid": "a16a3336-c9ab-489f-9b85-c973f5e2cfa4"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "i2psm3knof5qjjix.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "I2PSm3Knof5qjjix.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "I2PSm3Knof5qjjix.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
       "server": "nycqg19zkwacpm1b.v.3dns.vip",
       "server_port": 443,
       "type": "vmess",
@@ -2837,67 +4033,11 @@
     },
     {
       "tag": "relay-node",
-      "server": "zfd-hkv2.kunlun01dns.com",
-      "server_port": 16116,
-      "type": "vmess",
-      "uuid": "0802ac03-7973-39ef-a019-ba02de6c01e1",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "51.222.200.165",
-      "server_port": 5000,
+      "server": "r3mrcg001286ek2.cybervena.com",
+      "server_port": 50099,
       "type": "shadowsocks",
-      "method": "aes-256-gcm",
-      "password": "Y6R9pAtvxxzmGC"
+      "method": "chacha20-ietf-poly1305",
+      "password": "7e731ec3-f8e1-43f6-92cf-3978d14705c4"
     },
     {
       "type": "direct",
@@ -2948,65 +4088,7 @@
     },
     {
       "tag": "relay-node",
-      "server": "185.126.238.87",
-      "server_port": 2083,
-      "type": "vless",
-      "uuid": "7668f678-faee-40cc-9b56-9c39dc773388",
-      "transport": {
-        "type": "grpc",
-        "service_name": "security.debian.org"
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "47.243.80.106",
+      "server": "qtkdr8jxe3wefxjm.v.3dns.vip",
       "server_port": 443,
       "type": "vmess",
       "uuid": "f23bb427c1f94373876c2f43e9f790f3",
@@ -3016,12 +4098,12 @@
         "type": "ws",
         "path": "/ws-vmess",
         "headers": {
-          "Host": "wwafj5LHl6bI8aU9.v.3dns.vip"
+          "Host": "qTKDR8jXE3wEFxJM.v.3dns.vip"
         }
       },
       "tls": {
         "enabled": true,
-        "server_name": "wwafj5LHl6bI8aU9.v.3dns.vip",
+        "server_name": "qTKDR8jXE3wEFxJM.v.3dns.vip",
         "insecure": false
       }
     },
@@ -3074,266 +4156,12 @@
     },
     {
       "tag": "relay-node",
-      "server": "82.38.31.217",
-      "server_port": 8080,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "k1dBOmOB4oqi7Ump37a1bQ"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
+      "server": "oc.imfun.fun",
+      "server_port": 18112,
       "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "uuid": "ad45f8f6-0f0a-4cc4-b907-c4582407dc94",
       "security": "auto",
       "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "wwafj5lhl6bi8au9.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {}
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "wwafj5lhl6bi8au9.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "vah4urdzl3jdx5r2.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "VAH4URdZL3jDX5r2.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "VAH4URdZL3jDX5r2.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "93ucrn4i0pffuabk.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {}
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "93ucrn4i0pffuabk.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "82.38.31.207",
-      "server_port": 8080,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "k1dBOmOB4oqi7Ump37a1bQ"
     },
     {
       "type": "direct",
@@ -3443,3448 +4271,11 @@
     },
     {
       "tag": "relay-node",
-      "server": "wwafj5lhl6bi8au9.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "wwafj5LHl6bI8aU9.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "wwafj5LHl6bI8aU9.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "188.114.97.6",
-      "server_port": 8080,
-      "type": "vless",
-      "uuid": "50414e45-4c5f-5a45-5553-4eef5adc237a",
-      "transport": {
-        "type": "ws",
-        "path": "/stream/PANEL_ZEUS/4eef5adc237a/loc-1",
-        "headers": {
-          "Host": "r5zenrelur2s.pqzdileiu8es.workers.dev"
-        }
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "82.38.31.82",
-      "server_port": 8080,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "dee2309db4se3g5s1d65g672c6641e25.oylfmxz.cn",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "d90e4077-bc7e-414d-a650-70bf1baae4d6",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "dee2309db4se3g5s1d65g672c6641e25.oylfmxz.cn"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "dee2309db4se3g5s1d65g672c6641e25.oylfmxz.cn",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "51.222.12.127",
-      "server_port": 445,
+      "server": "yyz-ca-01.blncvpn4u.cc",
+      "server_port": 9443,
       "type": "shadowsocks",
       "method": "aes-256-gcm",
-      "password": "zDNVedRFPQexG9v"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "82.38.31.46",
-      "server_port": 8080,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "wwafj5lhl6bi8au9.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {}
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "wwafj5lhl6bi8au9.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "82.38.31.206",
-      "server_port": 8080,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "k1dBOmOB4oqi7Ump37a1bQ"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "91.193.58.15",
-      "server_port": 2096,
-      "type": "vless",
-      "uuid": "6e59d5c5-7aa3-4c36-a4c4-e3b899525ed2",
-      "transport": {
-        "type": "ws",
-        "path": "/free-server.techsonic.dev",
-        "headers": {
-          "Host": "free-server.techsonic.dev"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "free-server.techsonic.dev",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "zfd-hkv2.kunlun01dns.com",
-      "server_port": 16116,
-      "type": "vmess",
-      "uuid": "0802ac03-7973-39ef-a019-ba02de6c01e1",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "r3mrcg00129437x.cybervena.com",
-      "server_port": 50099,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "7e731ec3-f8e1-43f6-92cf-3978d14705c4"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "r3mrcg001286ek2.cybervena.com",
-      "server_port": 50099,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "7e731ec3-f8e1-43f6-92cf-3978d14705c4"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "141.193.213.21",
-      "server_port": 8443,
-      "type": "vless",
-      "uuid": "29c3dd6b-b164-40ca-a0d5-f06aca52a8b2",
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "u.srilankangrill.online"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "u.srilankangrill.online",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "139.180.220.175",
-      "server_port": 8388,
-      "type": "shadowsocks",
-      "method": "aes-256-gcm",
-      "password": "qpSevKaUXYQKvSjp"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "wwafj5lhl6bi8au9.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {}
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "wwafj5lhl6bi8au9.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "lcv8v9l7oyamxxfz.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "lcv8v9l7OyamxxfZ.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "lcv8v9l7OyamxxfZ.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "vah4urdzl3jdx5r2.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "vah4urdzl3jdx5r2.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "vah4urdzl3jdx5r2.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "r3mrcg00129437x.cybervena.com",
-      "server_port": 50099,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "b1ae0fce-9340-4f2e-882d-fdb2218e2e2b"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "wwafj5lhl6bi8au9.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "wwafj5LHl6bI8aU9.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "wwafj5LHl6bI8aU9.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "45.32.57.118",
-      "server_port": 4433,
-      "type": "vmess",
-      "uuid": "35b89832-0a7c-48dd-8d1c-a2891b522195",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "lcv8v9l7oyamxxfz.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "lcv8v9l7OyamxxfZ.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "lcv8v9l7OyamxxfZ.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "82.38.31.205",
-      "server_port": 8080,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "k1dBOmOB4oqi7Ump37a1bQ"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "R3MRCG00129437X.cybervena.com",
-      "server_port": 50099,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "b1ae0fce-9340-4f2e-882d-fdb2218e2e2b"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "103.86.49.57",
-      "server_port": 80,
-      "type": "vless",
-      "uuid": "3c52e091-6714-4915-949f-2149fe69951b",
-      "transport": {
-        "type": "ws",
-        "path": "/ws",
-        "headers": {
-          "Host": "aIs.SpEeDtEsT.nEt"
-        }
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "6jdvarazgu3qqr6q.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "6JDvArazgU3qQR6Q.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "6JDvArazgU3qQR6Q.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "141.95.29.163",
-      "server_port": 2083,
-      "type": "shadowsocks",
-      "method": "2022-blake3-aes-256-gcm",
-      "password": "cOiC+3JhAXMwdGV5exnrMSorJU0Rl5qlLCbCAuDlWY4=:JTou+JSmZOAyrMLdvNBcXFm0Y9luZ/8u17ie48jQfVc="
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "82.38.31.214",
-      "server_port": 8080,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "k1dBOmOB4oqi7Ump37a1bQ"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "23.150.248.20",
-      "server_port": 8388,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "qB2Cv9VIlujj"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "82.38.31.179",
-      "server_port": 8080,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "k1dBOmOB4oqi7Ump37a1bQ"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "100.42.228.109",
-      "server_port": 443,
-      "type": "trojan",
-      "password": "BxceQaOe",
-      "tls": {
-        "enabled": true,
-        "server_name": "t.me/ripaojiedian",
-        "insecure": true
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "94.183.170.135",
-      "server_port": 443,
-      "type": "vless",
-      "uuid": "06c4e938-2954-478f-a870-ca1b163e30e9",
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {}
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "151.243.173.119",
-      "server_port": 33736,
-      "type": "vmess",
-      "uuid": "b3a11068-1a7e-4643-85de-7c82cce46943",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/vmess-ws",
-        "headers": {}
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "wwafj5lhl6bi8au9.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {}
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "wwafj5lhl6bi8au9.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "189.74.97.47",
-      "server_port": 2087,
-      "type": "vless",
-      "uuid": "894fe9f0-b998-49c0-8003-a5007de921e1",
-      "transport": {
-        "type": "ws",
-        "path": "/755276b33b6f",
-        "headers": {}
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "194.233.74.160",
-      "server_port": 2342,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "XV4bvaJIWoxl3IYEC1e6W7"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "82.38.31.215",
-      "server_port": 8080,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "k1dBOmOB4oqi7Ump37a1bQ"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "nycqg19zkwacpm1b.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "NYcQg19zkwaCPM1B.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "NYcQg19zkwaCPM1B.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "38.180.214.110",
-      "server_port": 5600,
-      "type": "shadowsocks",
-      "method": "aes-256-gcm",
-      "password": "Y6R9pAtvxxzmGC"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "15.204.233.41",
-      "server_port": 8882,
-      "type": "shadowsocks",
-      "method": "aes-256-gcm",
-      "password": "kDWvXYZoTBcGkC4"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "nycqg19zkwacpm1b.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "NYcQg19zkwaCPM1B.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "NYcQg19zkwaCPM1B.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "nycqg19zkwacpm1b.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "NYcQg19zkwaCPM1B.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "NYcQg19zkwaCPM1B.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "82.38.31.181",
-      "server_port": 8080,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "k1dBOmOB4oqi7Ump37a1bQ"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "i2psm3knof5qjjix.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "I2PSm3Knof5qjjix.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "I2PSm3Knof5qjjix.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "51.255.13.232",
-      "server_port": 8388,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "BqnqToih0PbU"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "82.38.31.3",
-      "server_port": 8080,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "ejomsxptp19apygl.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {}
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "ejomsxptp19apygl.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "i2psm3knof5qjjix.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "I2PSm3Knof5qjjix.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "I2PSm3Knof5qjjix.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "ex1ogt73nzpqkac2.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "EX1oGt73NzPQKAc2.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "EX1oGt73NzPQKAc2.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "82.38.31.216",
-      "server_port": 8080,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "k1dBOmOB4oqi7Ump37a1bQ"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "77.110.101.97",
-      "server_port": 56834,
-      "type": "vless",
-      "uuid": "daf65e17-1ed5-42be-a34d-20a156ddedbc"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "188.114.96.19",
-      "server_port": 80,
-      "type": "vmess",
-      "uuid": "aed88e79-5762-4d2f-86fa-f438f32a7654",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "google.whatsapp.snapp.torob.basalam.hesanid8.ir."
-        }
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "132.243.175.144",
-      "server_port": 8388,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "172.67.156.147",
-      "server_port": 443,
-      "type": "vless",
-      "uuid": "4e4f1f70-5e56-4a76-bb9d-db087f4690c4",
-      "transport": {
-        "type": "ws",
-        "path": "/tyxyws",
-        "headers": {
-          "Host": "jp3.yohototo.top"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "jp3.yohototo.top",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "82.38.31.204",
-      "server_port": 8080,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "k1dBOmOB4oqi7Ump37a1bQ"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "82.38.31.174",
-      "server_port": 443,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "neth9.lunariai.ru",
-      "server_port": 8443,
-      "type": "vless",
-      "uuid": "9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a",
-      "tls": {
-        "enabled": true,
-        "server_name": "neth9.lunariai.ru",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "ejomsxptp19apygl.v.3dns.vip",
-      "server_port": 443,
-      "type": "vmess",
-      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
-      "security": "auto",
-      "alter_id": 0,
-      "transport": {
-        "type": "ws",
-        "path": "/ws-vmess",
-        "headers": {
-          "Host": "ejOMsxPtP19APyGL.v.3dns.vip"
-        }
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "ejOMsxPtP19APyGL.v.3dns.vip",
-        "insecure": false
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "r3mrcg00129437x.cybervena.com",
-      "server_port": 50099,
-      "type": "shadowsocks",
-      "method": "chacha20-ietf-poly1305",
-      "password": "b1ae0fce-9340-4f2e-882d-fdb2218e2e2b"
+      "password": "eveaaTOb8ji8yntw2Z9yWUG0d6Ir8Ld8m3ymH8THdC5egiTH1mXCiBc0Skr7FibH"
     },
     {
       "type": "direct",
@@ -7056,6 +4447,187 @@
     },
     {
       "tag": "relay-node",
+      "server": "neth9.lunariai.ru",
+      "server_port": 8443,
+      "type": "vless",
+      "uuid": "9f73cf9a-c68f-4e6d-90f0-e66b64f52f8a",
+      "tls": {
+        "enabled": true,
+        "server_name": "neth9.lunariai.ru",
+        "insecure": false
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "46.8.200.91",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "0a2dde28-70da-4863-a06f-35d007d94d35",
+      "transport": {
+        "type": "ws",
+        "path": "/casc",
+        "headers": {
+          "Host": "cf3.rumedia-cdn.com"
+        }
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "cf3.rumedia-cdn.com",
+        "insecure": false
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "45.32.57.118",
+      "server_port": 4433,
+      "type": "vmess",
+      "uuid": "35b89832-0a7c-48dd-8d1c-a2891b522195",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
       "server": "162.19.204.71",
       "server_port": 1234,
       "type": "vmess",
@@ -7117,11 +4689,67 @@
     },
     {
       "tag": "relay-node",
-      "server": "82.38.31.162",
-      "server_port": 443,
+      "server": "dog-hk.kunlun01dns.com",
+      "server_port": 21041,
+      "type": "vmess",
+      "uuid": "9464ca40-dd75-3742-a628-d931a9f413b2",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "R3MRCG00129437X.cybervena.com",
+      "server_port": 50099,
       "type": "shadowsocks",
       "method": "chacha20-ietf-poly1305",
-      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+      "password": "b1ae0fce-9340-4f2e-882d-fdb2218e2e2b"
     },
     {
       "type": "direct",
@@ -7172,67 +4800,11 @@
     },
     {
       "tag": "relay-node",
-      "server": "94.249.187.46",
-      "server_port": 2086,
-      "type": "vmess",
-      "uuid": "f6361af8-bb8f-4609-bf5d-3fc0f688f47b",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "198.98.53.130",
-      "server_port": 443,
+      "server": "104.249.22.75",
+      "server_port": 43377,
       "type": "shadowsocks",
       "method": "chacha20-ietf-poly1305",
-      "password": "eDfN7SODQceIOmIAbtJJtK"
+      "password": "2MaqmLJwWXtdJPvpzXD2MSYiZrXDwneqZbAEXqZUw7RzX7ndd3xFM9C3u9NdRXZPTNgDBenPLn6B6VrwmodCSEQc8RfuxBn8"
     },
     {
       "type": "direct",
@@ -7283,11 +4855,138 @@
     },
     {
       "tag": "relay-node",
-      "server": "51.222.155.113",
-      "server_port": 5601,
+      "server": "nycqg19zkwacpm1b.v.3dns.vip",
+      "server_port": 443,
+      "type": "vmess",
+      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "path": "/ws-vmess",
+        "headers": {
+          "Host": "NYcQg19zkwaCPM1B.v.3dns.vip"
+        }
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "NYcQg19zkwaCPM1B.v.3dns.vip",
+        "insecure": false
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "189.74.97.47",
+      "server_port": 2087,
+      "type": "vless",
+      "uuid": "894fe9f0-b998-49c0-8003-a5007de921e1",
+      "transport": {
+        "type": "ws",
+        "path": "/755276b33b6f",
+        "headers": {}
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "168.107.68.192",
+      "server_port": 56927,
       "type": "shadowsocks",
-      "method": "aes-256-gcm",
-      "password": "Y6R9pAtvxxzmGC"
+      "method": "2022-blake3-chacha20-poly1305",
+      "password": "3wYtGhROca1p818RFgftCeodooVes1HaskrJVHZoF3c="
     },
     {
       "type": "direct",
@@ -7338,67 +5037,11 @@
     },
     {
       "tag": "relay-node",
-      "server": "zfd-hkv2.kunlun01dns.com",
-      "server_port": 16115,
-      "type": "vmess",
-      "uuid": "0802ac03-7973-39ef-a019-ba02de6c01e1",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    }
-  ],
-  "route": {
-    "auto_detect_interface": true,
-    "rules": [
-      {
-        "protocol": "dns",
-        "outbound": "direct"
-      }
-    ]
-  }
-}
-{
-  "log": {
-    "level": "info"
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true
-    }
-  ],
-  "outbounds": [
-    {
-      "tag": "exit-node",
-      "server": "129.146.143.80",
-      "server_port": 48111,
-      "detour": "relay-node",
-      "type": "vmess",
-      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
-      "security": "auto",
-      "alter_id": 0
-    },
-    {
-      "tag": "relay-node",
-      "server": "51.222.141.125",
-      "server_port": 445,
+      "server": "144.24.225.39",
+      "server_port": 61312,
       "type": "shadowsocks",
-      "method": "aes-256-gcm",
-      "password": "zDNVedRFPQexG9v"
+      "method": "2022-blake3-chacha20-poly1305",
+      "password": "JXVCv3N78Ulr/V2Rsk0UN8DJEzD+yC0cbtWo9zjGTkg="
     },
     {
       "type": "direct",
@@ -7449,11 +5092,11 @@
     },
     {
       "tag": "relay-node",
-      "server": "51.222.155.32",
-      "server_port": 5003,
+      "server": "144.24.226.127",
+      "server_port": 61312,
       "type": "shadowsocks",
-      "method": "aes-256-gcm",
-      "password": "g5MeD6Ft3CWlJId"
+      "method": "2022-blake3-chacha20-poly1305",
+      "password": "J7cXNcIXneBAD5a5hk6nXD68z5BcJtIMepdH646KjtI="
     },
     {
       "type": "direct",
@@ -7504,11 +5147,595 @@
     },
     {
       "tag": "relay-node",
-      "server": "82.38.31.192",
+      "server": "82.38.31.204",
       "server_port": 8080,
       "type": "shadowsocks",
       "method": "chacha20-ietf-poly1305",
       "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "31.76.76.28",
+      "server_port": 443,
+      "type": "vless",
+      "uuid": "de5906f3-df38-4463-aa9d-2b01320cc6ea",
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "31.76.76.28"
+        }
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "dee2309db4944c248b6d4372c6641e25.oylfmxz.cn",
+      "server_port": 443,
+      "type": "vmess",
+      "uuid": "d90e4077-bc7e-414d-a650-70bf1baae4d6",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "path": "/",
+        "headers": {
+          "Host": "dee2309db4944c248b6d4372c6641e25.oylfmxz.cn"
+        }
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "dee2309db4944c248b6d4372c6641e25.oylfmxz.cn",
+        "insecure": false
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "139.84.247.164",
+      "server_port": 8388,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "tfAcRikawhNoZAhu"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "107.173.254.27",
+      "server_port": 15311,
+      "type": "vmess",
+      "uuid": "ad78d02b-873f-4cff-8d4a-673f53d6ce0f",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "82.38.31.206",
+      "server_port": 8080,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "oc.imfun.fun",
+      "server_port": 18112,
+      "type": "vmess",
+      "uuid": "ad45f8f6-0f0a-4cc4-b907-c4582407dc94",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "wwafj5lhl6bi8au9.v.3dns.vip",
+      "server_port": 443,
+      "type": "vmess",
+      "uuid": "f23bb427c1f94373876c2f43e9f790f3",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "path": "/ws-vmess",
+        "headers": {
+          "Host": "wwafj5LHl6bI8aU9.v.3dns.vip"
+        }
+      },
+      "tls": {
+        "enabled": true,
+        "server_name": "wwafj5LHl6bI8aU9.v.3dns.vip",
+        "insecure": false
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "82.38.31.207",
+      "server_port": 8080,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "k1dBOmOB4oqi7Ump37a1bQ"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "129.151.66.224",
+      "server_port": 61312,
+      "type": "shadowsocks",
+      "method": "2022-blake3-chacha20-poly1305",
+      "password": "em25pV7s2EUkWhgDNcKJDRPTc8KBbjReVwoUdeqeQoU="
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "15.204.233.41",
+      "server_port": 8882,
+      "type": "shadowsocks",
+      "method": "aes-256-gcm",
+      "password": "kDWvXYZoTBcGkC4"
     },
     {
       "type": "direct",
@@ -7615,11 +5842,242 @@
     },
     {
       "tag": "relay-node",
-      "server": "129.151.66.224",
-      "server_port": 61312,
+      "server": "151.243.173.119",
+      "server_port": 33736,
+      "type": "vmess",
+      "uuid": "b3a11068-1a7e-4643-85de-7c82cce46943",
+      "security": "auto",
+      "alter_id": 0,
+      "transport": {
+        "type": "ws",
+        "path": "/vmess-ws",
+        "headers": {}
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "82.38.31.162",
+      "server_port": 443,
+      "type": "shadowsocks",
+      "method": "chacha20-ietf-poly1305",
+      "password": "oZIoA69Q8yhcQV8ka3Pa3A"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "129.146.202.221",
+      "server_port": 50356,
       "type": "shadowsocks",
       "method": "2022-blake3-chacha20-poly1305",
-      "password": "em25pV7s2EUkWhgDNcKJDRPTc8KBbjReVwoUdeqeQoU="
+      "password": "+fzJvpwW2VTKUH4q8DKLuZXnibvrI2eRuStiXN8txX4="
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "oc.imfun.fun",
+      "server_port": 18112,
+      "type": "vmess",
+      "uuid": "ad45f8f6-0f0a-4cc4-b907-c4582407dc94",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "direct"
+      }
+    ]
+  }
+}
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": true,
+      "endpoint_independent_nat": true,
+      "stack": "system",
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "tag": "exit-node",
+      "server": "129.146.143.80",
+      "server_port": 48111,
+      "detour": "relay-node",
+      "type": "vmess",
+      "uuid": "d4603cc2-e0ee-4651-83f5-1db5b7168177",
+      "security": "auto",
+      "alter_id": 0
+    },
+    {
+      "tag": "relay-node",
+      "server": "3h-unitedstates1.09vpn.com",
+      "server_port": 80,
+      "type": "vless",
+      "uuid": "18cf8db1-9f86-43f7-baa0-382efb7f2dfa",
+      "transport": {
+        "type": "ws",
+        "path": "/vless/",
+        "headers": {}
+      }
     },
     {
       "type": "direct",
