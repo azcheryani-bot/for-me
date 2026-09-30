@@ -14,7 +14,7 @@ API_ID = int(os.environ.get("TELEGRAM_API_ID", "123456"))
 API_HASH = os.environ.get("TELEGRAM_API_HASH", "")
 SESSION_STRING = os.environ.get("TELEGRAM_SESSION", "")
 SOURCE_CHANNEL = "ConfigV2rayNG"
-DEST_CHANNEL = "hhhhhyyyyyyww"
+DEST_CHANNEL = "enteghalbede"
 REMOTE_TXT_URL = "https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/refs/heads/main/V2Ray-Config-By-EbraSha.txt"
 
 # کانفیگ ثابت نود مقصد (exit-node)
