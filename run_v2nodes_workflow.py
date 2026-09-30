@@ -43,7 +43,7 @@ async def send_output(output_path):
         in_memory=True,
     ) as app:
         await app.send_document(
-            "testman222",
+            "hhhhhyyyyyyww",
             str(output_path),
             caption="✅ کانفیگ‌های all countries v2nodes",
         )
