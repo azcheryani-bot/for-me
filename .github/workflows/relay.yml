@@ -2,7 +2,7 @@ name: Update Relay Configs
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '0 5 * * *'
   workflow_dispatch:
 
 permissions:
@@ -14,12 +14,10 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-
       - name: Install Dependencies & Sing-Box
         run: |
           pip install pyrogram tgcrypto requests
@@ -27,7 +25,6 @@ jobs:
           tar -xzf sing-box.tar.gz
           sudo mv sing-box-*/sing-box /usr/local/bin/
           sing-box version
-
       - name: Run Script
         env:
           TELEGRAM_API_ID: ${{ secrets.TELEGRAM_API_ID }}
@@ -36,7 +33,6 @@ jobs:
         run: |
           python relay_builder.py
           python run_v2nodes_workflow.py
-
       - name: Commit and Push Results
         run: |
           git config --global user.name "github-actions[bot]"
