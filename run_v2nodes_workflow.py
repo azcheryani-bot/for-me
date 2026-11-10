@@ -51,10 +51,13 @@ async def send_output(output_path):
 
 def main():
     DESKTOP.mkdir(parents=True, exist_ok=True)
+    print("[*] شروع تولید کانفیگ‌های v2nodes...")
     run_generator()
+    print("[*] تولیدکننده تمام شد؛ بررسی فایل خروجی...")
     generated_path = DESKTOP / OUTPUT_NAME
     workspace_path = WORKSPACE / OUTPUT_NAME
     if not generated_path.is_file():
+        print("[!] فایل خروجی ساخته نشد؛ تولیدکننده بدون خروجی تمام شد (احتمالاً کلید v2nodes گرفته نشد).")
         raise FileNotFoundError(f"فایل خروجی ساخته نشد: {generated_path}")
     shutil.copyfile(generated_path, workspace_path)
     asyncio.run(send_output(workspace_path))
@@ -62,3 +65,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

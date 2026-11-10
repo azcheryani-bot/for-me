@@ -1,5 +1,6 @@
 import os
 import re
+import time
 import base64
 import requests
 from urllib.parse import urlparse, parse_qs
@@ -30,24 +31,39 @@ COUNTRY_CODES = [
 PROTOCOLS = ("vmess://", "vless://", "trojan://", "ss://", "ssr://", "hy2://", "tuic://")
 
 
+KEY_FETCH_ATTEMPTS = 3
+KEY_FETCH_TIMEOUT = 20
+
+
 def get_latest_key_from_site(session: requests.Session) -> str | None:
-    """دریافت خودکار آخرین کلید فعال از صفحه اصلی سایت"""
+    """دریافت خودکار آخرین کلید فعال از صفحه اصلی سایت (با چند تلاش و وقفه)"""
     print("[*] در حال واکشی آخرین کلید از سایت v2nodes.com...")
-    try:
-        res = session.get(SITE_URL, timeout=12)
-        if res.status_code == 200:
-            html = res.text
-            patterns = [
-                r"/subscriptions/country/[a-zA-Z]+/?[?]key=([a-zA-Z0-9]+)",
-                r"[?&]key=([a-zA-Z0-9]{10,40})",
-                r"key=([0-9A-Fa-f]{10,40})"
-            ]
-            for pattern in patterns:
-                matches = re.findall(pattern, html)
-                if matches:
-                    return matches[0]
-    except requests.RequestException as e:
-        print(f"[!] خطا در اتصال به سایت برای دریافت خودکار کلید: {e}")
+    patterns = [
+        r"/subscriptions/country/[a-zA-Z]+/?[?]key=([a-zA-Z0-9]+)",
+        r"[?&]key=([a-zA-Z0-9]{10,40})",
+        r"key=([0-9A-Fa-f]{10,40})"
+    ]
+    for attempt in range(1, KEY_FETCH_ATTEMPTS + 1):
+        try:
+            res = session.get(SITE_URL, timeout=KEY_FETCH_TIMEOUT)
+            print(f"[*] تلاش {attempt}/{KEY_FETCH_ATTEMPTS} برای دریافت کلید: HTTP {res.status_code}، {len(res.content)} بایت")
+            if res.status_code == 200:
+                html = res.text
+                for pattern in patterns:
+                    matches = re.findall(pattern, html)
+                    if matches:
+                        print(f"[✓] کلید در تلاش {attempt} پیدا شد")
+                        return matches[0]
+                print(f"[!] تلاش {attempt}: صفحه رسید اما هیچ کلیدی در آن پیدا نشد")
+            else:
+                print(f"[!] تلاش {attempt}: وضعیت غیر 200")
+        except requests.RequestException as e:
+            print(f"[!] تلاش {attempt}/{KEY_FETCH_ATTEMPTS} برای دریافت کلید خطا خورد: {type(e).__name__}: {e}")
+        if attempt < KEY_FETCH_ATTEMPTS:
+            wait = 5 * attempt
+            print(f"[*] {wait} ثانیه صبر و تلاش دوباره برای دریافت کلید...")
+            time.sleep(wait)
+    print("[!] دریافت کلید پس از همه تلاش‌ها ناموفق بود")
     return None
 
 
@@ -97,8 +113,9 @@ def fetch_country_configs(country: str, base_url: str, key: str, session: reques
         if res.status_code == 200 and res.text.strip():
             configs = parse_subscription_payload(res.text)
             return country, configs
-    except requests.RequestException:
-        pass
+        print(f"[!] {country}: HTTP {res.status_code} یا پاسخ خالی")
+    except requests.RequestException as e:
+        print(f"[!] {country}: خطا {type(e).__name__}: {e}")
     return country, []
 
 
@@ -136,6 +153,8 @@ def main():
 
     print(f"\nدر حال جمع‌آوری و دیکود از {len(COUNTRY_CODES)} کشور به‌صورت همزمان...\n")
 
+    countries_ok = 0
+    countries_empty = 0
     with ThreadPoolExecutor(max_workers=15) as executor:
         futures = [
             executor.submit(fetch_country_configs, country, base_url, key, session)
@@ -145,12 +164,17 @@ def main():
         for future in as_completed(futures):
             country, configs = future.result()
             if configs:
+                countries_ok += 1
                 new_added = 0
                 for cfg in configs:
                     if cfg not in all_configs:
                         all_configs.add(cfg)
                         new_added += 1
                 print(f"[✓] {country.upper()}: {len(configs)} کانفیگ دریافت شد (+{new_added} جدید)")
+            else:
+                countries_empty += 1
+
+    print(f"\n[خلاصه] {countries_ok} کشور کانفیگ دادند، {countries_empty} کشور خالی/ناموفق، مجموع یکتا: {len(all_configs)}")
 
     if not all_configs:
         print("\nهیچ کانفیگی دریافت نشد! مطمئن شوید اینترنت شما به دامنه سایت دسترسی دارد.")

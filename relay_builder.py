@@ -352,24 +352,31 @@ def ping_filter(relay_outbounds):
 async def fetch_telegram_configs():
     configs = []
     if not SESSION_STRING:
-        print("TELEGRAM_SESSION مقداردهی نشده است.")
+        print("[منبع تلگرام] TELEGRAM_SESSION مقداردهی نشده است.")
         return configs
 
     app = Client("session_bot", api_id=API_ID, api_hash=API_HASH, session_string=SESSION_STRING, in_memory=True)
+    scanned = 0
     async with app:
         async for message in app.get_chat_history(SOURCE_CHANNEL, limit=50):
+            scanned += 1
             text = message.text or message.caption
             if text:
                 matches = re.findall(URL_REGEX, text, re.IGNORECASE)
                 for item in matches:
                     configs.append(item.strip())
+    print(f"[منبع تلگرام] {scanned} پیام خوانده شد، {len(configs)} لینک یافت شد ({len(set(configs))} یکتا)")
     return list(set(configs))
 
 def fetch_github_configs():
     try:
         res = requests.get(REMOTE_TXT_URL, timeout=15)
+        print(f"[منبع گیت‌هاب] HTTP {res.status_code}، {len(res.content)} بایت دریافت شد")
         if res.status_code == 200:
-            return re.findall(URL_REGEX, res.text, re.IGNORECASE)
+            found = re.findall(URL_REGEX, res.text, re.IGNORECASE)
+            print(f"[منبع گیت‌هاب] {len(found)} لینک یافت شد")
+            return found
+        print("[منبع گیت‌هاب] پاسخ غیر 200؛ هیچ لینکی گرفته نشد")
     except Exception as e:
         print(f"خطا در دریافت کانفیگ‌های گیت‌هاب: {e}")
     return []
@@ -378,8 +385,10 @@ async def main():
     print("جمع‌آوری لینک‌های اولیه...")
     tg_links = await fetch_telegram_configs()
     gh_links = fetch_github_configs()
+    print(f"[منبع تلگرام] {len(tg_links)} لینک خام یکتا")
+    print(f"[منبع گیت‌هاب] {len(gh_links)} لینک خام یکتا")
     all_raw_links = list(set(tg_links + gh_links))
-    print(f"تعداد لینک‌های خام استخراج شده: {len(all_raw_links)}")
+    print(f"تعداد لینک‌های خام استخراج شده: {len(all_raw_links)} (تکراری حذف‌شده: {len(tg_links) + len(gh_links) - len(all_raw_links)})")
 
     # تبدیل لینک‌های خام به آبجکت outbound
     parsed_outbounds = []
@@ -388,6 +397,12 @@ async def main():
         if parsed:
             parsed_outbounds.append(parsed)
     print(f"تعداد کانفیگ‌های ترجمه شده به سینگ‌باکس: {len(parsed_outbounds)}")
+
+    # لاگ تشخیصی جداگانهٔ هر منبع: چند لینک هر منبع قابل ترجمه بود
+    tg_ok = sum(1 for link in tg_links if parse_proxy_url(link))
+    gh_ok = sum(1 for link in gh_links if parse_proxy_url(link))
+    print(f"[منبع تلگرام] {tg_ok} از {len(tg_links)} لینک قابل ترجمه بود")
+    print(f"[منبع گیت‌هاب] {gh_ok} از {len(gh_links)} لینک قابل ترجمه بود")
 
     # تست پینگ واقعی روی تک‌تک زنجیره‌ها
     working_nodes = ping_filter(parsed_outbounds)
