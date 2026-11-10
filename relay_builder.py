@@ -405,6 +405,17 @@ async def main():
     print(f"[منبع گیت‌هاب] {gh_ok} از {len(gh_links)} لینک قابل ترجمه بود")
 
     # تست پینگ واقعی روی تک‌تک زنجیره‌ها
+    # Build plain-text file of Telegram channel configs and send it to the same destination channel
+    telegram_filename = "telegram_configs.txt"
+    with open(telegram_filename, "w", encoding="utf-8") as f:
+        for link in tg_links:
+            f.write(link + chr(10))
+    print(f"[Telegram source] {len(tg_links)} raw configs written to {telegram_filename}")
+    if SESSION_STRING and tg_links:
+        telegram_app = Client("telegram_configs_sender", api_id=API_ID, api_hash=API_HASH, session_string=SESSION_STRING, in_memory=True)
+        async with telegram_app:
+            await telegram_app.send_document(DEST_CHANNEL, telegram_filename, caption=f"{len(tg_links)} raw configs from Telegram channel")
+            print(f"[Telegram source] {telegram_filename} with {len(tg_links)} configs sent to Telegram channel")
     working_nodes = ping_filter(parsed_outbounds)
     print(f"تعداد نهایی کانفیگ‌های سالم با پینگ تایید شده: {len(working_nodes)}")
 
