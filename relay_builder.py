@@ -357,15 +357,39 @@ async def fetch_telegram_configs():
 
     app = Client("session_bot", api_id=API_ID, api_hash=API_HASH, session_string=SESSION_STRING, in_memory=True)
     scanned = 0
+    n_text = 0
+    n_caption = 0
+    n_neither = 0
+    n_media = 0
+    first_date = None
+    last_date = None
     async with app:
+        chat = await app.get_chat(SOURCE_CHANNEL)
+        print(f"[منبع تلگرام] کانال خوانده‌شده: title={chat.title!r} username={getattr(chat, 'username', None)!r} id={chat.id} type={chat.type}")
         async for message in app.get_chat_history(SOURCE_CHANNEL, limit=50):
             scanned += 1
             text = message.text or message.caption
+            if message.text:
+                n_text += 1
+            elif message.caption:
+                n_caption += 1
+            else:
+                n_neither += 1
+            if message.media:
+                n_media += 1
+            if first_date is None:
+                first_date = message.date
+            last_date = message.date
+            sample = (text or "").replace("\n", " ")[:100]
+            mtype = message.media.value if message.media else "none"
+            nmatch = len(re.findall(URL_REGEX, text, re.IGNORECASE)) if text else 0
+            print(f"[تلگرام][{scanned}] id={message.id} date={message.date} media={mtype} text_len={len(message.text or '')} caption_len={len(message.caption or '')} links={nmatch} sample={sample!r}")
             if text:
                 matches = re.findall(URL_REGEX, text, re.IGNORECASE)
                 for item in matches:
                     configs.append(item.strip())
     print(f"[منبع تلگرام] {scanned} پیام خوانده شد، {len(configs)} لینک یافت شد ({len(set(configs))} یکتا)")
+    print(f"[منبع تلگرام][تشخیص] با متن: {n_text}، با کپشن: {n_caption}، بدون متن/کپشن: {n_neither}، دارای مدیا: {n_media}، بازه تاریخ: {first_date} تا {last_date}")
     return list(set(configs))
 
 def fetch_github_configs():
