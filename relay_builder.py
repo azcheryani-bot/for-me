@@ -3,6 +3,7 @@ import re
 import json
 import time
 import base64
+import html
 import asyncio
 import requests
 import subprocess
@@ -15,7 +16,8 @@ API_HASH = os.environ.get("TELEGRAM_API_HASH", "")
 SESSION_STRING = os.environ.get("TELEGRAM_SESSION", "")
 SOURCE_CHANNEL = "ConfigV2rayNG"
 DEST_CHANNEL = "enteghalbede"
-REMOTE_TXT_URL = "https://raw.githubusercontent.com/ebrasha/free-v2ray-public-list/refs/heads/main/V2Ray-Config-By-EbraSha.txt"
+# منبع گیت‌هاب حذف شد: مخزن ebrasha/free-v2ray-public-list دیگر وجود ندارد (HTTP 404)؛
+# فهرست انبوه کانفیگ‌ها از run_v2nodes_workflow.py می‌آید.
 
 # کانفیگ ثابت نود مقصد (exit-node)
 EXIT_NODE = {
@@ -349,7 +351,41 @@ def ping_filter(relay_outbounds):
 
     return alive_nodes
 
-async def fetch_telegram_configs():
+def fetch_telegram_preview_configs():
+    """خواندن کانفیگ‌ها از نمای عمومی کانال (https://t.me/s/ConfigV2rayNG).
+
+    دلیل: خواندن با API تلگرام (Pyrogram) برای این کانال متن پست‌ها را خالی
+    برمی‌گرداند — در اجرای #۱۹۵ هر ۵۰ پیام بدون متن/کپشن برگشتند (۲۸ پیام
+    کاملاً خالی)، در حالی که همان پست‌ها در نمای عمومی و در اپ تلگرام پر از
+    لینک vless هستند (حدود ۲۰۰ لینک در صفحه). پس نمای عمومی منبع اصلی است.
+    """
+    url = f"https://t.me/s/{SOURCE_CHANNEL}"
+    try:
+        res = requests.get(
+            url,
+            timeout=20,
+            headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120.0 Safari/537.36"},
+        )
+        print(f"[منبع تلگرام] نمای عمومی: HTTP {res.status_code}، {len(res.content)} بایت دریافت شد")
+        if res.status_code != 200:
+            print("[منبع تلگرام] نمای عمومی در دسترس نیست")
+            return []
+        text = html.unescape(res.text)
+        found = re.findall(URL_REGEX, text, re.IGNORECASE)
+        found = [item.strip() for item in found]
+        print(f"[منبع تلگرام] نمای عمومی: {len(found)} لینک یافت شد ({len(set(found))} یکتا)")
+        return list(set(found))
+    except Exception as e:
+        print(f"خطا در خواندن نمای عمومی تلگرام: {e}")
+        return []
+
+
+async def fetch_telegram_configs_api():
+    """روش قدیمی (API تلگرام با Pyrogram) — فقط به‌عنوان پشتیبان.
+
+    برای این کانال متن پست‌ها را خالی برمی‌گرداند؛ نگه داشته شده تا اگر روزی
+    نمای عمومی از دسترس افتاد، هنوز شانسی برای گرفتن لینک باشد.
+    """
     configs = []
     if not SESSION_STRING:
         print("[منبع تلگرام] TELEGRAM_SESSION مقداردهی نشده است.")
@@ -392,27 +428,20 @@ async def fetch_telegram_configs():
     print(f"[منبع تلگرام][تشخیص] با متن: {n_text}، با کپشن: {n_caption}، بدون متن/کپشن: {n_neither}، دارای مدیا: {n_media}، بازه تاریخ: {first_date} تا {last_date}")
     return list(set(configs))
 
-def fetch_github_configs():
-    try:
-        res = requests.get(REMOTE_TXT_URL, timeout=15)
-        print(f"[منبع گیت‌هاب] HTTP {res.status_code}، {len(res.content)} بایت دریافت شد")
-        if res.status_code == 200:
-            found = re.findall(URL_REGEX, res.text, re.IGNORECASE)
-            print(f"[منبع گیت‌هاب] {len(found)} لینک یافت شد")
-            return found
-        print("[منبع گیت‌هاب] پاسخ غیر 200؛ هیچ لینکی گرفته نشد")
-    except Exception as e:
-        print(f"خطا در دریافت کانفیگ‌های گیت‌هاب: {e}")
-    return []
+
+async def fetch_telegram_configs():
+    configs = fetch_telegram_preview_configs()
+    if configs:
+        return configs
+    print("[منبع تلگرام] نمای عمومی لینکی نداد؛ تلاش با API تلگرام...")
+    return await fetch_telegram_configs_api()
 
 async def main():
     print("جمع‌آوری لینک‌های اولیه...")
     tg_links = await fetch_telegram_configs()
-    gh_links = fetch_github_configs()
     print(f"[منبع تلگرام] {len(tg_links)} لینک خام یکتا")
-    print(f"[منبع گیت‌هاب] {len(gh_links)} لینک خام یکتا")
-    all_raw_links = list(set(tg_links + gh_links))
-    print(f"تعداد لینک‌های خام استخراج شده: {len(all_raw_links)} (تکراری حذف‌شده: {len(tg_links) + len(gh_links) - len(all_raw_links)})")
+    all_raw_links = list(set(tg_links))
+    print(f"تعداد لینک‌های خام استخراج شده: {len(all_raw_links)}")
 
     # تبدیل لینک‌های خام به آبجکت outbound
     parsed_outbounds = []
@@ -424,9 +453,7 @@ async def main():
 
     # لاگ تشخیصی جداگانهٔ هر منبع: چند لینک هر منبع قابل ترجمه بود
     tg_ok = sum(1 for link in tg_links if parse_proxy_url(link))
-    gh_ok = sum(1 for link in gh_links if parse_proxy_url(link))
     print(f"[منبع تلگرام] {tg_ok} از {len(tg_links)} لینک قابل ترجمه بود")
-    print(f"[منبع گیت‌هاب] {gh_ok} از {len(gh_links)} لینک قابل ترجمه بود")
 
     # تست پینگ واقعی روی تک‌تک زنجیره‌ها
     # Build plain-text file of Telegram channel configs and send it to the same destination channel
