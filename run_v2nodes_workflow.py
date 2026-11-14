@@ -8,7 +8,6 @@ from pathlib import Path
 
 from pyrogram import Client
 
-
 OUTPUT_NAME = "all_countries_v2nodes.txt"
 WORKSPACE = Path.cwd()
 DESKTOP = Path.home() / "Desktop"
@@ -35,34 +34,27 @@ async def send_output(output_path):
     api_id = int(os.environ["TELEGRAM_API_ID"])
     api_hash = os.environ["TELEGRAM_API_HASH"]
     session_string = os.environ["TELEGRAM_SESSION"]
-    async with Client(
-        "v2nodes_sender",
-        api_id=api_id,
-        api_hash=api_hash,
-        session_string=session_string,
-        in_memory=True,
-    ) as app:
-        await app.send_document(
-            "enteghalbede",
-            str(output_path),
-            caption="✅ کانفیگ‌های all countries v2nodes",
-        )
+    app = Client("v2nodes_sender", api_id=api_id, api_hash=api_hash, session_string=session_string, in_memory=True)
+    async with app:
+        await app.send_document("enteghalbede", output_path, caption=f"{output_path.name}")
 
 
 def main():
-    DESKTOP.mkdir(parents=True, exist_ok=True)
-    print("[*] شروع تولید کانفیگ‌های v2nodes...")
+    # پالایش تهران v2nodes در v2nodes_configs.py انجام می‌شود (۱ پروب برای هر
+    # هاست، fail-open). این فرایند جداگانه است، ولی حافظهٔ هاست با
+    # relay_builder.py از راه فایل .globalping_host_cache.json در فضای کاری
+    # همین اجرای ورک‌فلو مشترک است، پس هاست‌های بررسی‌شده دوباره تست نمی‌شوند.
+    print("[Globalping][v2nodes] پالایش تهران در v2nodes_configs.py انجام می‌شود (۱ پروب برای هر هاست؛ حافظهٔ هاست با relay_builder.py مشترک است)")
     run_generator()
-    print("[*] تولیدکننده تمام شد؛ بررسی فایل خروجی...")
-    generated_path = DESKTOP / OUTPUT_NAME
-    workspace_path = WORKSPACE / OUTPUT_NAME
-    if not generated_path.is_file():
-        print("[!] فایل خروجی ساخته نشد؛ تولیدکننده بدون خروجی تمام شد (احتمالاً کلید v2nodes گرفته نشد).")
-        raise FileNotFoundError(f"فایل خروجی ساخته نشد: {generated_path}")
-    shutil.copyfile(generated_path, workspace_path)
-    asyncio.run(send_output(workspace_path))
+    print("[Globalping][v2nodes] مرحلهٔ v2nodes تمام شد؛ خروجی در ادامه کپی و ارسال می‌شود")
+    desktop_output = DESKTOP / OUTPUT_NAME
+    workspace_output = WORKSPACE / OUTPUT_NAME
+    if not desktop_output.exists():
+        raise FileNotFoundError(f"Expected output was not created: {desktop_output}")
+    shutil.copyfile(desktop_output, workspace_output)
+    print(f"Copied {desktop_output} -> {workspace_output}")
+    asyncio.run(send_output(workspace_output))
 
 
 if __name__ == "__main__":
     main()
-
