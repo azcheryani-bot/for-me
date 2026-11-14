@@ -11,6 +11,8 @@ import urllib.parse
 from concurrent.futures import ThreadPoolExecutor
 from pyrogram import Client
 
+import globalping_filter
+
 API_ID = int(os.environ.get("TELEGRAM_API_ID", "123456"))
 API_HASH = os.environ.get("TELEGRAM_API_HASH", "")
 SESSION_STRING = os.environ.get("TELEGRAM_SESSION", "")
@@ -474,6 +476,19 @@ async def main():
         print("هیچ کانفیگی در این نوبت تست پینگ موفق ثبت نکرد.")
         return
 
+    # پالایش تهران با Globalping: فقط سرورهایی که از داخل ایران پینگ می‌خورند
+    # می‌مانند؛ اگر Globalping در دسترس نباشد، فهرست پالایش‌نشده حفظ می‌شود.
+    tehran_nodes, gp_stats = globalping_filter.filter_relay_nodes(working_nodes)
+    if tehran_nodes is not None:
+        working_nodes = tehran_nodes
+    tehran_note = ""
+    if gp_stats.get("skipped"):
+        tehran_note = " (پالایش تهران انجام نشد: Globalping در دسترس نبود)"
+    elif gp_stats.get("reason") == "zero-reachable-fallback":
+        tehran_note = " (هیچ سروری از تهران جواب نگرفت؛ فهرست کامل حفظ شد)"
+    else:
+        tehran_note = f" (پالایش‌شده از تهران با Globalping: {gp_stats['kept']} از {gp_stats['tested_hosts']} سرور)"
+
     # قالب‌بندی خروجی به‌صورت بلوک‌های کامل JSON جداگانه
     output_blocks = []
     for node in working_nodes:
@@ -490,7 +505,7 @@ async def main():
     if SESSION_STRING:
         app = Client("sender_bot", api_id=API_ID, api_hash=API_HASH, session_string=SESSION_STRING, in_memory=True)
         async with app:
-            caption = f"✅ تعداد {len(working_nodes)} کانفیگ زنجیره‌ای Sing-box تست‌شده با پینگ موفق"
+            caption = f"✅ تعداد {len(working_nodes)} کانفیگ زنجیره‌ای Sing-box تست‌شده با پینگ موفق{tehran_note}"
             await app.send_document(DEST_CHANNEL, output_filename, caption=caption)
             print("فایل خروجی با موفقیت در کانال تلگرام بارگذاری شد.")
 
