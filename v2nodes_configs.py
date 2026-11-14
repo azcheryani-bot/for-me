@@ -155,20 +155,23 @@ def main():
     # برایشان تست تازه مصرف نمی‌شود. اگر بودجهٔ ۵۰۰ تست/ساعت برای همهٔ
     # هاست‌های یکتا کافی نباشد، این پالایش رد می‌شود و فهرست پالایش‌نشده
     # حفظ می‌شود (fail-open) — هرگز اجرا را خراب نمی‌کند.
-    try:
-        import globalping_filter
-        v2nodes_links, gp_v2_stats = globalping_filter.filter_config_links(
-            sorted(all_configs), stage="v2nodes", max_probes=1
-        )
-        all_configs = set(v2nodes_links)
-        if gp_v2_stats.get("skipped"):
-            print("[Globalping][v2nodes] پالایش تهران انجام نشد؛ فهرست پالایش‌نشده حفظ شد (fail-open)")
-        elif gp_v2_stats.get("reason") == "zero-reachable-fallback":
-            print("[Globalping][v2nodes] هیچ سروری از تهران جواب نگرفت؛ فهرست پالایش‌نشده حفظ شد (fail-open)")
-        else:
-            print(f"[Globalping][v2nodes] {gp_v2_stats['kept']} از {gp_v2_stats['total']} کانفیگ پس از پالایش تهران ماند")
-    except Exception as e:
-        print(f"[Globalping][v2nodes] پالایش تهران انجام نشد: {e} — فهرست پالایش‌نشده حفظ شد (fail-open)")
+    if not all_configs:
+        print("[Globalping][v2nodes] کانفیگ‌ها: 0 — پالایش تهران انجام نشد (ورودی خالی؛ v2nodes.com در این اجرا کانفیگی نداد)")
+    else:
+        try:
+            import globalping_filter
+            v2nodes_links, gp_v2_stats = globalping_filter.filter_config_links(
+                sorted(all_configs), stage="v2nodes", max_probes=1
+            )
+            all_configs = set(v2nodes_links)
+            if gp_v2_stats.get("skipped"):
+                print("[Globalping][v2nodes] پالایش تهران انجام نشد؛ فهرست پالایش‌نشده حفظ شد (fail-open)")
+            elif gp_v2_stats.get("reason") == "zero-reachable-fallback":
+                print("[Globalping][v2nodes] هیچ سروری از تهران جواب نگرفت؛ فهرست پالایش‌نشده حفظ شد (fail-open)")
+            else:
+                print(f"[Globalping][v2nodes] {gp_v2_stats['kept']} از {gp_v2_stats['total']} کانفیگ پس از پالایش تهران ماند")
+        except Exception as e:
+            print(f"[Globalping][v2nodes] پالایش تهران انجام نشد: {e} — فهرست پالایش‌نشده حفظ شد (fail-open)")
 
     # خروجی برای خروجی به فایل متنی
     try:
