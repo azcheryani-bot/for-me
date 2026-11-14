@@ -457,7 +457,6 @@ async def main():
     tg_ok = sum(1 for link in tg_links if parse_proxy_url(link))
     print(f"[منبع تلگرام] {tg_ok} از {len(tg_links)} لینک قابل ترجمه بود")
 
-    # تست پینگ واقعی روی تک‌تک زنجیره‌ها
     # Build plain-text file of Telegram channel configs and send it to the same destination channel
     telegram_filename = "telegram_configs.txt"
     with open(telegram_filename, "w", encoding="utf-8") as f:
@@ -469,6 +468,25 @@ async def main():
         async with telegram_app:
             await telegram_app.send_document(DEST_CHANNEL, telegram_filename, caption=f"{len(tg_links)} raw configs from Telegram channel")
             print(f"[Telegram source] {telegram_filename} with {len(tg_links)} configs sent to Telegram channel")
+
+    # پالایش تهران برای همهٔ کانفیگ‌های ترجمه‌شده، پیش از تست زنجیره:
+    # فقط سرورهایی که از تهران دیده می‌شوند وارد ping_filter می‌شوند.
+    # هاست‌های بررسی‌شده در حافظهٔ درون‌اجرا می‌مانند تا پالایش پس از
+    # زنجیره برای همان هاست‌ها دوباره تست مصرف نکند.
+    tehran_all_nodes, gp_all_stats = globalping_filter.filter_relay_nodes(
+        parsed_outbounds, stage="all-configs"
+    )
+    if tehran_all_nodes is not None:
+        parsed_outbounds = tehran_all_nodes
+    if gp_all_stats.get("skipped"):
+        print("[Globalping][all-configs] پالایش تهران انجام نشد؛ همهٔ کانفیگ‌ها وارد تست زنجیره شدند (fail-open)")
+    elif gp_all_stats.get("reason") == "zero-reachable-fallback":
+        print("[Globalping][all-configs] هیچ سروری از تهران جواب نگرفت؛ همهٔ کانفیگ‌ها وارد تست زنجیره شدند (fail-open)")
+    else:
+        print(f"[Globalping][all-configs] {gp_all_stats['kept']} از {gp_all_stats['total']} کانفیگ پس از پالایش تهران وارد تست زنجیره شدند")
+    print(f"تعداد کانفیگ‌ها پس از پالایش تهران (پیش از تست زنجیره): {len(parsed_outbounds)}")
+
+    # تست پینگ واقعی روی تک‌تک زنجیره‌ها (فقط کانفیگ‌های پالایش‌شدهٔ تهران)
     working_nodes = ping_filter(parsed_outbounds)
     print(f"تعداد نهایی کانفیگ‌های سالم با پینگ تایید شده: {len(working_nodes)}")
 
@@ -478,7 +496,9 @@ async def main():
 
     # پالایش تهران با Globalping: فقط سرورهایی که از داخل ایران پینگ می‌خورند
     # می‌مانند؛ اگر Globalping در دسترس نباشد، فهرست پالایش‌نشده حفظ می‌شود.
-    tehran_nodes, gp_stats = globalping_filter.filter_relay_nodes(working_nodes)
+    # هاست‌های این مرحله در مرحلهٔ all-configs بررسی شده‌اند و از حافظهٔ
+    # درون‌اجرا استفاده می‌شود، پس تست تازه‌ای مصرف نمی‌شود.
+    tehran_nodes, gp_stats = globalping_filter.filter_relay_nodes(working_nodes, stage="post-chain")
     if tehran_nodes is not None:
         working_nodes = tehran_nodes
     tehran_note = ""
