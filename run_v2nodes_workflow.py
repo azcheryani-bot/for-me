@@ -51,6 +51,14 @@ def main():
     workspace_output = WORKSPACE / OUTPUT_NAME
     if not desktop_output.exists():
         raise FileNotFoundError(f"Expected output was not created: {desktop_output}")
+    # خروجی خالی یعنی v2nodes.com در این اجرا کانفیگی نداد (مثلاً کلید پویا
+    # پیدا نشد یا همهٔ کشورها 404 دادند). فایل خالی نه قابل ارسال به تلگرام
+    # است (Pyrogram با «File size equals to 0 B» خطا می‌دهد) و نه باید جای
+    # فایل قبلی مخزن را بگیرد؛ پس بدون کپی و بدون ارسال، با موفقیت برگردید
+    # تا مرحلهٔ کامیت ورک‌فلو برای valid_relays.txt همچنان اجرا شود.
+    if desktop_output.stat().st_size == 0:
+        print(f"[v2nodes] خروجی خالی است ({desktop_output}، 0 بایت) — v2nodes.com در این اجرا کانفیگی نداد؛ فایل قبلی مخزن حفظ شد و چیزی ارسال نشد (fail-open)")
+        return
     shutil.copyfile(desktop_output, workspace_output)
     print(f"Copied {desktop_output} -> {workspace_output}")
     asyncio.run(send_output(workspace_output))
