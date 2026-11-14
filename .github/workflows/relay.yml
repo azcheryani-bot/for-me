@@ -33,6 +33,9 @@ jobs:
           TELEGRAM_API_ID: ${{ secrets.TELEGRAM_API_ID }}
           TELEGRAM_API_HASH: ${{ secrets.TELEGRAM_API_HASH }}
           TELEGRAM_SESSION: ${{ secrets.TELEGRAM_SESSION }}
+          # اختیاری: توکن Globalping سقف تست‌ها را از ۲۵۰ به ۵۰۰ در ساعت می‌برد؛
+          # بدون آن هم پالایش تهران با سقف ناشناس کار می‌کند.
+          GLOBALPING_TOKEN: ${{ secrets.GLOBALPING_TOKEN }}
         run: |
           python relay_builder.py
           python run_v2nodes_workflow.py
