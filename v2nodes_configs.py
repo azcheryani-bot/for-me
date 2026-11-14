@@ -87,17 +87,37 @@ def fetch_page(url, timeout=20, max_retries=2):
     return None
 
 def get_dynamic_key(session):
-    """دریافت کلید پویا از سایت"""
+    """دریافت کلید پویا از سایت.
+
+    شکل کنونی سایت: صفحهٔ اصلی یک جعبهٔ «Subscription link» دارد با مقدار
+    https://www.v2nodes.com/subscriptions/country/all/?key=<KEY>
+    و فایل هر کشور در /subscriptions/country/<code>/?key=<KEY> است.
+    الگوی قدیمی (/__<KEY>/) دیگر در صفحهٔ اصلی نیست و نشانی قدیمی
+    /<code> در سایت کنونی 404 می‌دهد؛ به همین دلیل در اجراهای ۲۰۵ و ۲۰۶
+    کلید پیدا نشد و همهٔ کشورها 404 گرفتند. الگوی قدیمی فقط به‌عنوان
+    جایگزین دوم نگه داشته شده است تا اگر سایت به آن برگشت، هنوز کار کند.
+    کلید هر بار از صفحهٔ اصلی خوانده می‌شود و در کد نوشته نمی‌شود.
+    """
     for attempt in range(KEY_FETCH_ATTEMPTS):
         try:
             res = fetch_page(SITE_URL, timeout=KEY_FETCH_TIMEOUT)
             if res is None:
                 print(f"تلاش {attempt+1}: دریافت صفحه اصلی ناموفق")
                 continue
+            match = re.search(r'/subscriptions/country/all/\?key=([A-Za-z0-9]+)', res.text)
+            if match:
+                key = match.group(1)
+                print(f"کلید پویا دریافت شد (قالب اشتراک، طول {len(key)})")
+                return key
+            match = re.search(r'[?&]key=([A-Za-z0-9]{8,})', res.text)
+            if match:
+                key = match.group(1)
+                print(f"کلید پویا دریافت شد (پارامتر key، طول {len(key)})")
+                return key
             match = re.search(r'/__[a-zA-Z0-9]+/', res.text)
             if match:
                 key = match.group(0)
-                print(f"کلید پویا دریافت شد: {key}")
+                print(f"کلید پویا دریافت شد (قالب قدیمی، طول {len(key)})")
                 return key
             print(f"تلاش {attempt+1}: کلید پویا در صفحه یافت نشد")
         except Exception as e:
@@ -108,10 +128,15 @@ def get_dynamic_key(session):
 
 def fetch_configs(country_code, key, session):
     """دریافت کانفیگ‌های یک کشور"""
-    if key:
+    if key.startswith("/__"):
+        # قالب قدیمی سایت: کلید به‌عنوان بخش مسیر
         url = f"{SITE_URL}{key}{country_code}"
+    elif key:
+        url = f"{SITE_URL}/subscriptions/country/{country_code}/?key={key}"
     else:
-        url = f"{SITE_URL}/{country_code}"
+        # بدون کلید هم نشانی اشتراک جواب می‌دهد (فهرست کوچک‌تر)؛
+        # نشانی قدیمی /<code> در سایت کنونی 404 می‌دهد.
+        url = f"{SITE_URL}/subscriptions/country/{country_code}/"
     res = fetch_page(url, timeout=20)
     if res is None:
         print(f"دریافت کانفیگ {country_code} ناموفق")
