@@ -37,8 +37,10 @@ jobs:
           # بدون آن هم پالایش تهران با سقف ناشناس کار می‌کند.
           GLOBALPING_TOKEN: ${{ secrets.GLOBALPING_TOKEN }}
         run: |
-          python relay_builder.py
+          # ترتیب اجرا: اول v2nodes تا اول از سهمیهٔ تست‌های Globalping
+          # استفاده کند، بعد relay_builder با هرچه از سهمیه ماند.
           python run_v2nodes_workflow.py
+          python relay_builder.py
 
       - name: Commit and Push Results
         run: |
