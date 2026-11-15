@@ -6,24 +6,28 @@
 اینجا سرور هر کانفیگ از چند پروب تهران (Globalping) پینگ می‌شود و فقط
 کانفیگ‌هایی که دست‌کم از یک پروب تهران جواب می‌گیرند نگه داشته می‌شوند.
 
-مراحل پالایش تهران در این مخزن (به ترتیب اجرا در یک اجرای ورک‌فلو):
-  1. relay_builder.py: همهٔ کانفیگ‌های ترجمه‌شده، پیش از تست زنجیره
-     (stage="all-configs") — تا کانفیگی که سرورش از تهران دیده نمی‌شود
-     اصلاً وارد تست زنجیره نشود.
-  2. relay_builder.py: رله‌های سالم زنجیره، پس از ping_filter
-     (stage="post-chain") — همان فیلتر قبلی؛ هاست‌هایی که در مرحلهٔ ۱
-     بررسی شده‌اند دوباره تست نمی‌شوند (حافظهٔ درون‌اجرا، پایین).
-  3. v2nodes_configs.py: خروجی v2nodes (stage="v2nodes"، همیشه ۱ پروب
+مراحل پالایش تهران در این مخزن (به ترتیب اجرا در یک اجرای ورک‌فلو —
+v2nodes اول سهمیه می‌گیرد، بقیه با هرچه ماند):
+  1. v2nodes_configs.py: خروجی v2nodes (stage="v2nodes"، همیشه ۱ پروب
      برای هر هاست) — چون فرایند جداگانه‌ای است، حافظه از راه فایل
      مشترک در فضای کاری ورک‌فلو به اشتراک گذاشته می‌شود.
+  2. relay_builder.py: همهٔ کانفیگ‌های ترجمه‌شده، پیش از تست زنجیره
+     (stage="all-configs") — تا کانفیگی که سرورش از تهران دیده نمی‌شود
+     اصلاً وارد تست زنجیره نشود؛ با سهمیهٔ باقی‌مانده پس از v2nodes.
+  3. relay_builder.py: رله‌های سالم زنجیره، پس از ping_filter
+     (stage="post-chain") — همان فیلتر قبلی؛ هاست‌هایی که در مرحله‌های
+     ۱ و ۲ بررسی شده‌اند دوباره تست نمی‌شوند (حافظهٔ درون‌اجرا، پایین).
 
 بودجهٔ تست: با توکن حساب ثبت‌شده ۵۰۰ تست در ساعت است (بدون توکن ۲۵۰).
 هر پروب یک تست حساب می‌شود. پیش از هر مرحله، هاست‌های یکتا شمرده
 می‌شوند و اگر ۲ پروب برای هر هاست در بودجه جا نشود، خودکار به ۱ پروب
-برای هر هاست کم می‌شود؛ اگر حتی ۱ پروب هم جا نشود، آن مرحله رد می‌شود
-(fail-open) و فهرست پالایش‌نشده حفظ می‌شود. هاست‌هایی که نتیجهٔ قطعی
-(در دسترس / در دسترس نیست) دارند، در حافظهٔ درون‌اجرا نگه داشته
-می‌شوند تا مرحله‌های بعدی همان اجرا دوباره برایشان تست مصرف نکنند.
+برای هر هاست کم می‌شود؛ اگر بودجه برای همهٔ هاست‌ها کافی نباشد،
+همان‌قدر که می‌رسد با ۱ پروب تست می‌شود و بقیهٔ هاست‌ها «نامشخص»
+می‌مانند و نگه داشته می‌شوند (تا سهمیهٔ باقی‌مانده هدر نرود)؛ اگر
+بودجه صفر باشد، آن مرحله رد می‌شود (fail-open) و فهرست پالایش‌نشده
+حفظ می‌شود. هاست‌هایی که نتیجهٔ قطعی (در دسترس / در دسترس نیست)
+دارند، در حافظهٔ درون‌اجرا نگه داشته می‌شوند تا مرحله‌های بعدی همان
+اجرا دوباره برایشان تست مصرف نکنند.
 
 حافظهٔ درون‌اجرا: یک دیکشنری در حافظهٔ همین فرایند + یک فایل JSON در
 فضای کاری (پیش‌فرض .globalping_host_cache.json). فایل فقط برای اشتراک
@@ -247,20 +251,32 @@ def tehran_filter(hosts, *, stage="tehran", max_probes=None):
     cached = {h: _MEMORY_CACHE[h] for h in unique_hosts if h in _MEMORY_CACHE}
     uncached = [h for h in unique_hosts if h not in _MEMORY_CACHE]
     probes = 0
+    to_test = uncached  # هاست‌هایی که در این مرحله واقعاً تست می‌شوند
     if uncached:
         remaining = _limits_remaining()
         probes = _choose_probes_per_host(len(uncached), remaining, max_probes=max_probes)
         if probes == 0:
-            print(f"[Globalping][{stage}] سقف تست‌ها کافی نیست — پالایش تهران رد شد (fail-open)")
-            LAST_RUN.update({"probes_per_host": 0, "unique_hosts": len(unique_hosts), "cached_hosts": len(cached), "tested_hosts": 0, "tests_used": 0})
-            return None
-    needed = len(uncached) * probes
-    print(f"[Globalping][{stage}] پینگ {len(unique_hosts)} هاست یکتا از تهران ({probes} پروب برای هر هاست، {needed} تست تازه؛ {len(cached)} هاست از حافظهٔ همین اجرا)")
+            budget = remaining if remaining is not None else HOURLY_TEST_BUDGET
+            if budget and budget > 0:
+                # بودجه برای همهٔ هاست‌ها کافی نیست، ولی برای بخشی از آن‌ها
+                # هست: به‌جای رد کامل مرحله، همان‌قدر که بودجه می‌رسد با
+                # ۱ پروب تست می‌شود و بقیهٔ هاست‌ها «نامشخص» می‌مانند و نگه
+                # داشته می‌شوند — تا سهمیهٔ باقی‌مانده هدر نرود.
+                probes = 1
+                to_test = uncached[:budget]
+                print(f"[Globalping][{stage}] بودجهٔ تست ({budget}) برای همهٔ {len(uncached)} هاست کافی نیست؛ {len(to_test)} هاست با ۱ پروب تست می‌شوند و {len(uncached) - len(to_test)} هاست نامشخص می‌مانند (نگه داشته می‌شوند)")
+            else:
+                print(f"[Globalping][{stage}] سقف تست‌ها کافی نیست — پالایش تهران رد شد (fail-open)")
+                LAST_RUN.update({"probes_per_host": 0, "unique_hosts": len(unique_hosts), "cached_hosts": len(cached), "tested_hosts": 0, "tests_used": 0})
+                return None
+    needed = len(to_test) * probes
+    partial_note = f"؛ {len(uncached) - len(to_test)} هاست تست نمی‌شوند (بودجه نرسید)" if len(to_test) < len(uncached) else ""
+    print(f"[Globalping][{stage}] پینگ {len(unique_hosts)} هاست یکتا از تهران ({probes} پروب برای هر هاست، {needed} تست تازه؛ {len(cached)} هاست از حافظهٔ همین اجرا{partial_note})")
 
     results = dict(cached)
-    if uncached:
+    if to_test:
         with ThreadPoolExecutor(max_workers=CREATE_WORKERS) as executor:
-            ids = dict(zip(uncached, executor.map(lambda h: _create_measurement(h, probes), uncached)))
+            ids = dict(zip(to_test, executor.map(lambda h: _create_measurement(h, probes), to_test)))
         todo = {h: mid for h, mid in ids.items() if mid}
         failed_create = [h for h, mid in ids.items() if not mid]
         for host in failed_create:
@@ -284,7 +300,12 @@ def tehran_filter(hosts, *, stage="tehran", max_probes=None):
                 print(f"[Globalping] 🔴 {host}: از تهران جواب نداد")
                 _MEMORY_CACHE[host] = {"reachable": False, "avg": avg}
         _save_cache()
-    LAST_RUN.update({"probes_per_host": probes, "unique_hosts": len(unique_hosts), "cached_hosts": len(cached), "tested_hosts": len(uncached), "tests_used": needed})
+    # هاست‌هایی که به‌علت کمبود بودجه تست نشدند، «نامشخص» می‌مانند تا
+    # فراخواننده آن‌ها را نگه دارد، نه حذف کند.
+    for host in uncached:
+        if host not in results:
+            results[host] = {"reachable": None, "avg": None}
+    LAST_RUN.update({"probes_per_host": probes, "unique_hosts": len(unique_hosts), "cached_hosts": len(cached), "tested_hosts": len(to_test), "tests_used": needed})
     return results
 
 

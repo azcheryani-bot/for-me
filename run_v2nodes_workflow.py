@@ -41,7 +41,8 @@ async def send_output(output_path):
 
 def main():
     # پالایش تهران v2nodes در v2nodes_configs.py انجام می‌شود (۱ پروب برای هر
-    # هاست، fail-open). این فرایند جداگانه است، ولی حافظهٔ هاست با
+    # هاست، fail-open). این فرایند در ورک‌فلو پیش از relay_builder.py اجرا
+    # می‌شود تا v2nodes اول از سهمیهٔ تست‌ها استفاده کند؛ حافظهٔ هاست با
     # relay_builder.py از راه فایل .globalping_host_cache.json در فضای کاری
     # همین اجرای ورک‌فلو مشترک است، پس هاست‌های بررسی‌شده دوباره تست نمی‌شوند.
     print("[Globalping][v2nodes] پالایش تهران در v2nodes_configs.py انجام می‌شود (۱ پروب برای هر هاست؛ حافظهٔ هاست با relay_builder.py مشترک است)")
